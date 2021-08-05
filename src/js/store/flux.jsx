@@ -5,8 +5,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			people: [],
 			planets: [],
-			starships: [],
-			nextPlanets: ""
+			starShips: [],
+			nextPlanets: "",
+			nextStarShips: ""
 		},
 		actions: {
 			getPlanets: () => {
@@ -31,28 +32,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(error);
 					});
 			},
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			// PARTE DE VINO
+			getStarShips: () => {
+				let url = getStore().nextStarShips ? getStore().nextStarShips : BASE_URL.concat("starships");
 
-				//reset the global store
-				setStore({ demo: demo });
+				fetch(url)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error("This is an intergalactic catastrophe", response.status);
+						}
+						return response.json();
+					})
+					.then(jsonStarShips => {
+						setStore({ starShips: [...getStore().starShips, ...jsonStarShips.results].flat() }); //.results para seleccionar solo lo que nos interesa
+
+						if (jsonStarShips.next) {
+							setStore({ nextPlanets: jsonStarShips.next });
+							getActions().getStarShips();
+						}
+					})
+					.catch(error => {
+						console.log(error);
+					});
 			}
 		}
 	};
