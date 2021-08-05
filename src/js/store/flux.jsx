@@ -32,6 +32,29 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(error);
 					});
 			},
+			//PARTE CALIXTO
+			getPeople: () => {
+				let url = getStore().nextPeople ? getStore().nextPeople : BASE_URL.concat("people");
+
+				fetch(url)
+					.then(response => {
+						if (!response.ok) {
+							throw new Error("This is an intergalactic catastrophe", response.status);
+						}
+						return response.json();
+					})
+					.then(jsonPeople => {
+						setStore({ people: [...getStore().people, ...jsonPeople.results].flat() }); //.results para seleccionar solo lo que nos interesa
+
+						if (jsonPeople.next) {
+							setStore({ nextPeople: jsonPeople.next });
+							getActions().getPeople();
+						}
+					})
+					.catch(error => {
+						console.log(error);
+					});
+			},
 
 			// PARTE DE VINO
 			getStarShips: () => {
@@ -48,7 +71,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ starShips: [...getStore().starShips, ...jsonStarShips.results].flat() }); //.results para seleccionar solo lo que nos interesa
 
 						if (jsonStarShips.next) {
-							setStore({ nextPlanets: jsonStarShips.next });
+							setStore({ nextStarShips: jsonStarShips.next });
 							getActions().getStarShips();
 						}
 					})

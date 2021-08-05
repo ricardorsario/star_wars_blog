@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import "../../styles/footer.scss";
-import * as Icon from "react-bootstrap-icons";
 
 export const Footer = () => (
 	<footer className="footer mt-auto py-3 text-center">

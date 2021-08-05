@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import injectContext from "./store/appContext.jsx";
 
-import NavbarComponent from "./component/navbar.jsx";
+import { NavbarComponent } from "./component/navbarComponent.jsx";
 import { Footer } from "./component/footer.jsx";
 import { Home } from "./views/home.jsx";
 
