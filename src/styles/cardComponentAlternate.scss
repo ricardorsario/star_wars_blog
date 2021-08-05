@@ -1,0 +1,36 @@
+.cardComponentAlternate {
+    background-color: #313133;
+    color: #fff7e6;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    display: flex;
+}
+
+.cardComponentAlternate__image {
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    width: 100%;
+    border-right: 0.2rem solid #d26f5a;
+}
+
+.cardComponentAlternate__body {
+    padding-top: 0.8rem;
+}
+
+.cardComponentAlternate__body__text {
+    display: flex;
+    flex-direction: column;
+}
+
+.cardComponentAlternate__body__text--title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.cardComponentAlternate__body__text--description {
+    padding-top: 0.2rem;
+    padding-bottom: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
