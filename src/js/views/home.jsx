@@ -15,7 +15,7 @@ const Home = () => {
 		[store.starShip]
 	);
 
-	return <h1>Hola</h1>;
+	return <h1>Holita!!</h1>;
 };
 
 export default Home;
