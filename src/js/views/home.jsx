@@ -57,14 +57,6 @@ export const Home = () => {
 	return (
 		<div className="home">
 			<Slides />
-			{/* <CardComponentAlternate
-				title={planetParameter.name}
-				key={planetParameter.uid}
-				description="
-								A scaly pelt and wide, curious eyes make Ruby a perfect pet. After she was smuggled to Ord Mantell by Clone Force 99, the mysterious and hungry lizard-like."
-				image="https://starwarsblog.starwars.com/wp-content/uploads/2018/10/mustafar-tall.jpg"
-			/> */}
-			{onePeopleCard}
 			<CardSectionTitle title="People" />
 			<div className="container">
 				<div className="row">
