@@ -77,12 +77,19 @@
 		]
 	},
 	"dependencies": {
+<<<<<<< HEAD
 		"bootstrap": "^4.3.1",
 		"bootstrap-icons": "^1.5.0",
 		"prop-types": "^15.6.1",
 		"react": "^16.8.4",
 		"react-bootstrap": "^1.6.0",
 		"react-bootstrap-icons": "^1.5.0",
+=======
+		"bootstrap": "^5.0.2",
+		"prop-types": "^15.6.1",
+		"react": "^16.8.4",
+		"react-bootstrap": "^1.6.0",
+>>>>>>> db16832f956407c9152534bb2f9aa19af47d4d19
 		"react-dom": "^16.8.4",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^5.2.0"
